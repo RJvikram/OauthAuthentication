@@ -12,7 +12,7 @@ This command creates a user named oauthUser with the specified password.
 2. **Create Database with all create, update, and delete permissions:**
 First, connect to your PostgreSQL server using a client like psql or a GUI tool like pgAdmin.
     ```bash
-    psql -U postgres -h localhost -p 5432
+    psql -U postgres -h localhost -p 5432 ```
 
 Then, execute the following SQL commands to create the database and grant permissions:
     ```bash

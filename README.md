@@ -1,21 +1,25 @@
 # OauthAuthentication
-OauthAuthentication
 
-## Setting up PostgreSQL Credentials
-To set up PostgreSQL credentials for your application, follow these steps:
+This section outlines the steps for setting up PostgreSQL credentials for your OauthAuthentication application.
 
-1. **Create User with that password:**
-   ```bash
-   CREATE USER oauthUser WITH PASSWORD 'AuthUser!1234';
-This command creates a user named oauthUser with the specified password.
+## Important Security Note
 
-2. **Create Database with all create, update, and delete permissions:**
-First, connect to your PostgreSQL server using a client like psql or a GUI tool like pgAdmin.
-    ```bash
-    psql -U postgres -h localhost -p 5432 ```
+* **Store Credentials Securely:** Never store database credentials directly in your code or configuration files. Consider using environment variables or a secure credential management solution.
+* **Grant Least Privilege:** The provided approach grants the `oauthuser` all permissions on the `OauthAuthentication` database. It's generally recommended to grant only the minimum permissions required for the application to function.
 
-Then, execute the following SQL commands to create the database and grant permissions:
-    ```bash
+## Steps
+
+1. **Create User with Secure Password:**
+
+   ```sql
+   CREATE USER oauthuser WITH PASSWORD '<STRONG_PASSWORD>';
+
+2. **Create Database and Grant Permissions:**
+    ```sql
+    psql -U postgres -h localhost -p 5432
+    ```
+    
+    ```sql
     CREATE DATABASE OauthAuthentication;
     GRANT ALL PRIVILEGES ON DATABASE OauthAuthentication TO oauthUser;
 

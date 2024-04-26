@@ -91,8 +91,6 @@ class UserBasicDetails(models.Model):
     date_of_birth = models.DateTimeField(null=False, blank=False, default=get_current_datetime)
     profile_image = models.ImageField(upload_to="user_profile", blank=True, null=True, default="user_profile/user_icon.png")
     phone_number = models.CharField(max_length=14, null=True, blank=True)
-    company = models.CharField(max_length=150, blank=True, null=True)
-    data_sources_json = models.CharField(max_length=1500, blank=True, null=True, default='[]')
 
     class Meta:
         db_table = "UserBasicDetails"

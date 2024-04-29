@@ -11,6 +11,13 @@ import uuid
 def get_current_datetime():
     return timezone.now()
 
+class TimeStampedModel(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
 class UserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
 
@@ -44,7 +51,7 @@ class UserManager(BaseUserManager):
 
         return self._create_user(email, password, **extra_fields)
 
-class User(AbstractUser):
+class User(TimeStampedModel,AbstractUser):
     """User model."""
 
     username = None
@@ -80,7 +87,7 @@ class User(AbstractUser):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-class UserBasicDetails(models.Model):
+class UserBasicDetails(TimeStampedModel):
     SEX_CHOICES = (
         ('Female', 'Female',),
         ('Male', 'Male',),

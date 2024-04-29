@@ -1,3 +1,3 @@
-CREATE USER oauthUser WITH PASSWORD 'AuthUser!1234';
-CREATE DATABASE OauthAuthentication;
-GRANT ALL PRIVILEGES ON DATABASE OauthAuthentication TO oauthUser;
+CREATE USER accountoauthuser WITH PASSWORD 'AuthUser!1234';
+CREATE DATABASE oauthauthentication;
+GRANT ALL PRIVILEGES ON DATABASE oauthauthentication TO accountoauthuser;

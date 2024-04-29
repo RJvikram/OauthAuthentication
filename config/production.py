@@ -8,6 +8,6 @@ DEBUG = True
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'postgresql://oauthUser:AuthUser!1234@localhost:5432/OauthAuthentication')
+        default=os.getenv('DATABASE_URL', 'postgresql://accountoauthuser:AuthUser!1234@localhost:5432/oauthauthentication')
     )
 }
